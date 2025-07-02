@@ -118,7 +118,7 @@ def compile_sapl(source_file: str, output_file: str, shared: bool = False):
      if shared:
         if not output_file.endswith(".dll"):
             output_file += ".dll"
-        link_flags = [obj_file, "/DLL", "/NOENTRY", "/LARGEADDRESSAWARE", "/defaultlib:kernel32.lib", f"/OUT:{output_file}"]
+        link_flags = [obj_file, "/DLL", "/NOENTRY", "/defaultlib:kernel32.lib", f"/OUT:{output_file}"]
      else:
         if not output_file.endswith(".exe"):
             output_file += ".exe"

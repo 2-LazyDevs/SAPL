@@ -5,7 +5,7 @@
 ### Status:-
 The programming language is still in it's early phases so there may be bugs & there is no gurantee that your program may work or not. 
 ### Version:- 
-***0.1.0***
+***0.1.1***
 ### How to use:-
 - Download the zip file from the releases section, the main branch may be broken
 - Make a text file, name it test.sapl

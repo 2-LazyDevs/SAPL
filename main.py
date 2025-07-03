@@ -125,7 +125,7 @@ def compile_sapl(source_file: str, output_file: str, shared: bool = False):
         link_flags = [obj_file, "/ENTRY:main", "kernel32.lib", f"/OUT:{output_file}"]
 
     link_cmd = (
-        'cmd /c "E:\\Languages\\VsBuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat && '
+        'cmd /c "vcvars64.bat && '
         'link ' + ' '.join(link_flags) + '"'
     )
 

@@ -16,7 +16,7 @@ The programming language is still in it's early phases so there may be bugs & th
    prt("Hello, World!")
    }
   `
-- Then enter the command `py main.py test.sapl -o test.exe`
+- Then enter the command `py main.py test.sapl -o test.exe` or in the future `saplc test.sapl -o test.exe` (CLI has been updated but still you can use this)
 - After compilation, run **test.exe**
 - & there you have it, the program then outputs `Hello, World!` or whatever you wrote.
 ### ToDo List:-

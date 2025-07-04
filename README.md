@@ -22,5 +22,6 @@ The programming language is still in it's early phases so there may be bugs & th
 ### ToDo List:-
 - Arithmetic support
 - Variable support
+- Ftoa Support
 - Better assembely code
 - Other stuff

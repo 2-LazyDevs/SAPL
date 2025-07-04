@@ -1,6 +1,8 @@
+
 # SAPL (Simply Advanced Programming Language)
-# This file is part of the SAPL project, which is a simple yet powerful programming language.
-# This is licensed under the 2LazyDevs OpenSource License.
+# This file is part of the SAPL project, which is a simple yet advanced programming language.
+# Version: 0.1.1
+# This is licensed under the 2LD OSL (2LazyDevs Open Source License).
 # A copy of the license can be found at https://github.com/2-LazyDevs/LICENSE/LICENSE
 # parser.py
 # Created by 2LazyDevs
@@ -92,7 +94,7 @@ class WhileStmt(ASTNode):
         if not isinstance(condition, ExpressionStmt):
             raise TypeError("Condition must be an Expression Statement")
         if not isinstance(body, list):
-            raise TypeError("Body must be a list of ASTNodes/Syntax")
+            raise TypeError("Body must comply with the syntax")
         self.condition = condition
         self.body = body
 class ForStmt(ASTNode):
@@ -115,7 +117,7 @@ class ContinueStmt(ASTNode):
 class TryStmt(ASTNode):
     def __init__(self, body: list[ASTNode], catch_body: Optional[list[ASTNode]] = None):
         if not isinstance(body, list):
-            raise TypeError("Body must be a list of ASTNodes/Syntax")
+            raise TypeError("Body must comply with the syntax")
         self.body = body
         self.catch_body = catch_body if catch_body is not None else []
 class ThrowStmt(ASTNode):
@@ -137,7 +139,7 @@ class ModuleDeclaration(ASTNode):
         if not isinstance(name, str):
             raise TypeError("Name must be a string")
         if not isinstance(body, list):
-            raise TypeError("Body must be a list of ASTNodes/Syntax")
+            raise TypeError("Body must comply with the syntax")
         self.name = name
         self.body = body
 class PropertyDecl(ASTNode):
@@ -147,7 +149,7 @@ class PropertyDecl(ASTNode):
 class StaticBlock(ASTNode):
     def __init__(self, body: list[ASTNode]):
         if not isinstance(body, list):
-            raise TypeError("Body must be a list of ASTNodes/Syntax")
+            raise TypeError("Body must comply with the syntax")
         self.body = body
 class EnumDecl(ASTNode):
     def __init__(self, name: str, members: list[ASTNode]):
@@ -191,7 +193,7 @@ class TypeParam(ASTNode):
 class TypeParamList(ASTNode):
     def __init__(self, params: list[TypeParam]):
         if not isinstance(params, list):
-            raise TypeError("Params must be a list of TypeParam")
+            raise TypeError("Params must be a list of TypeParam objects")
         self.params = params
 class TypeExpr(ASTNode):
     def __init__(self, name: str, type_params: Optional[TypeParamList] = None):
@@ -210,16 +212,16 @@ class UnaryExpr(ASTNode):
         if not isinstance(operator, Token):
             raise TypeError("Operator must be a Token")
         if not isinstance(right, ASTNode):
-            raise TypeError("Right operand must be an ASTNode/ part of the Syntax")
+            raise TypeError("Right operand must be part of the syntax")
         self.operator = operator
         self.right = right
 
 class CallExpr(ASTNode):
     def __init__(self, callee, args: list[ASTNode]):
         if not isinstance(callee, ASTNode):
-            raise TypeError("Callee must be an ASTNode")
+            raise TypeError("Callee must be an ASTNode. Consult documentation for more details.")
         if not isinstance(args, list):
-            raise TypeError("Args must be a list of ASTNodes")
+            raise TypeError("Arguments must be a list of ASTNodes. Consult documentation for more details.")
         self.callee = callee
         self.args = args
 
@@ -283,7 +285,7 @@ class Parser:
      if self.match(TokenType.EQUAL):           # support:  var x = 42
         init_expr = self.parse_expression()
 
-     # no semicolon? swallow one if present so both styles work
+     # No semicolon? Swallow one if present so both styles work
      self.match(TokenType.SEMICOLON)
      return VarDecl(name, is_user, init_expr)
 

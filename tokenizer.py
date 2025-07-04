@@ -1,6 +1,8 @@
+
 # SAPL (Simply Advanced Programming Language)
-# This file is part of the SAPL project, which is a simple yet powerful programming language.
-# This is licensed under the 2LazyDevs OpenSource License.
+# This file is part of the SAPL project, which is a simple yet advanced programming language.
+# Version: 0.1.1
+# This is licensed under the 2LD OSL (2LazyDevs Open Source License).
 # A copy of the license can be found at https://github.com/2-LazyDevs/LICENSE/LICENSE
 # tokenizer.py
 # Created by 2LazyDevs
@@ -224,13 +226,13 @@ class SyntaxError(Exception):
 
     def __str__(self):
         if self.line is not None and self.column is not None:
-            return f"SyntaxError at {self.line}:{self.column} - {super().__str__()}"
-        return f"SyntaxError - {super().__str__()}"
+            return f"Syntax Error at {self.line}:{self.column} - {super().__str__()}"
+        return f"Syntax Error - {super().__str__()}"
     
     def __repr__(self):
         if self.line is not None and self.column is not None:
-            return f"SyntaxError at {self.line}:{self.column} - {super().__repr__()}"
-        return f"SyntaxError - {super().__repr__()}"
+            return f"Syntax Error at {self.line}:{self.column} - {super().__repr__()}"
+        return f"Syntax Error - {super().__repr__()}"
 
 class Program:
     def __init__(self, statements=None):
@@ -258,11 +260,11 @@ class ConstExpr:
         self.value = value
 
     def __repr__(self):
-        return f"ConstExpr({self.value})"
+        return f"Constant expression: ({self.value})"
 
     def __str__(self):
-        return f"ConstExpr with value {self.value}"
-    
+        return f"Constant expression with value{self.value}"
+
     def __eq__(self, other):
         if not isinstance(other, ConstExpr):
             return False

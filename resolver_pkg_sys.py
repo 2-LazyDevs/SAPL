@@ -1,7 +1,8 @@
 
 # SAPL (Simply Advanced Programming Language)
-# This file is part of the SAPL project, which is a simple yet powerful programming language.
-# This is licensed under the 2LazyDevs OpenSource License.
+# This file is part of the SAPL project, which is a simple yet advanced programming language.
+# Version: 0.1.1
+# This is licensed under the 2LD OSL (2LazyDevs Open Source License).
 # A copy of the license can be found at https://github.com/2-LazyDevs/LICENSE/LICENSE
 # resolver_pkg_sys.py
 # Created by 2LazyDevs
@@ -41,4 +42,4 @@ class PackageResolver:
             return contents
 
         except FileNotFoundError as e:
-            raise FileNotFoundError(f"[SAPL Resolver] {e}")
+            raise FileNotFoundError(f"[SAPL Package Resolver Error: File Not Found] {e}")
